@@ -1,14 +1,15 @@
 #include "entity.h";
 
 Entity_t _entities[10];
-u8 reservedEntities;
+Entity_t* _nextFreeEntity;
 
-void  man_entity_init() {
-    reservedEntities = 0;
+void man_entity_init() {
+    cpct_memset(_entities, 0, sizeof(_entities));
+    _nextFreeEntity = _entities;
 }
 
 Entity_t* man_entity_create() {
-    Entity_t* e = &_entities[reservedEntities];
-    ++reservedEntities;
+    Entity_t* e = _nextFreeEntity;
+    _nextFreeEntity = e + 1;
     return e;
 }

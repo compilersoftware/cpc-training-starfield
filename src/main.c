@@ -19,12 +19,23 @@
 #include <cpctelera.h>
 #include "man/entity.h"
 
+// Init entity
+const Entity_t initEntity = {
+    1,      // type
+    79, 1,  // x, y
+    -1,     // vx
+    0xFF    // colour
+};
+
+void _createEntity() {
+    Entity_t *e = man_entity_create();
+    cpct_memcpy(e, &initEntity, sizeof(Entity_t));
+}
+
 void main(void) {
-    Entity_t *e;
     man_entity_init();
-    e = man_entity_create();
-    e->x = 5;
-    e->y = 100;
-    e->vx = -1;
+    for (u8 i = 5; i > 0; i--) {
+        _createEntity();
+    }
     while(1);
 }
