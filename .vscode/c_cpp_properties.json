@@ -6,7 +6,8 @@
                 "${workspaceRoot}",
                 "/usr/include",
                 "/usr/local/include",
-                "${env:CPCT_PATH}/src"
+                "${env:CPCT_PATH}/src",
+                "${workspaceFolder}/src"
             ],
             "defines": [],
             "browse": {

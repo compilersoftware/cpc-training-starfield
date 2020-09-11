@@ -18,24 +18,29 @@
 
 #include <cpctelera.h>
 #include "man/entity.h"
+#include "sys/physics.h"
 
 // Init entity
 const Entity_t initEntity = {
-    1,      // type
-    79, 1,  // x, y
-    -1,     // vx
-    0xFF    // colour
+    entityTypeStar, // type
+    79, 1,          // x, y
+    -1,             // vx
+    0xFF            // colour
 };
 
-void _createEntity() {
+void _createEntity()
+{
     Entity_t *e = man_entity_create();
     cpct_memcpy(e, &initEntity, sizeof(Entity_t));
 }
 
-void main(void) {
+void main(void)
+{
     man_entity_init();
     for (u8 i = 5; i > 0; i--) {
         _createEntity();
     }
+    sys_physics_update();
+    
     while(1);
 }
