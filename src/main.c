@@ -19,6 +19,7 @@
 #include <cpctelera.h>
 #include "man/entity.h"
 #include "sys/physics.h"
+#include "sys/render.h"
 
 // Init entity
 const Entity_t initEntity = {
@@ -36,11 +37,22 @@ void _createEntity()
 
 void main(void)
 {
+    // Init video mode
+    cpct_disableFirmware();
+    cpct_setVideoMode(0);
+    cpct_setVideoMode(HW_BLACK);
+    cpct_setPALColour(0, HW_BLACK);
+
+    // Init entity manager and create entities
     man_entity_init();
     for (u8 i = 5; i > 0; i--) {
         _createEntity();
     }
+
+    // Update systems
     sys_physics_update();
-    
+    sys_render_update();
+
+    // Wait forever
     while(1);
 }
