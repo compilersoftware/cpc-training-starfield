@@ -5,8 +5,11 @@
  */
 
 // Will store all valid entities from first place of the array, without gaps between them
-Entity_t _entities[10];
+Entity_t _entities[MAX_ENTITIES];
+u8 _zeroByteAtTheEnd; // @HACK means an invalid entity after _entities
+                      // Only works if compiler puts these variables ordered in memory
 Entity_t* _nextFreeEntity;
+u8 _numEntities;
 
 /**
  * Private functions
@@ -31,6 +34,8 @@ void _man_entity_destroy(Entity_t* entity)
     }
     lastEntity->type = entityTypeInvalid;
     _nextFreeEntity = lastEntity;
+
+    --_numEntities;
 }
 
 /**
@@ -41,6 +46,8 @@ void man_entity_init()
 {
     cpct_memset(_entities, 0, sizeof(_entities));
     _nextFreeEntity = _entities;
+    _numEntities = 0;
+    _zeroByteAtTheEnd = entityTypeInvalid;
 }
 
 Entity_t* man_entity_create()
@@ -48,6 +55,7 @@ Entity_t* man_entity_create()
     Entity_t* entity = _nextFreeEntity;
     _nextFreeEntity = entity + 1;
     entity->type = entityTypeDefault;
+    ++_numEntities;
     return entity;
 }
 
@@ -76,4 +84,9 @@ void man_entity_update()
             ++entity;    
         }
     }
+}
+
+u8 man_entity_freeSpace()
+{
+    return MAX_ENTITIES - _numEntities;
 }

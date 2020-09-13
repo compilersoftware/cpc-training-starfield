@@ -2,6 +2,29 @@
 #include <man/entity.h>
 
 /**
+ * Private members
+ */
+
+const u8 _palette[] = {
+    HW_BLACK,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE,
+    HW_BRIGHT_WHITE
+};
+
+/**
  * Private functions
  */
 
@@ -23,6 +46,13 @@ void _sys_render_updateSingleEntity(Entity_t* entity)
 /**
  * Public functions
  */
+
+void sys_render_init()
+{
+    cpct_setVideoMode(0);
+    cpct_setVideoMode(HW_BLACK);
+    cpct_setPalette(_palette, sizeof(_palette));
+}
 
 void sys_render_update()
 {

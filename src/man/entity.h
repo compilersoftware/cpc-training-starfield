@@ -10,6 +10,8 @@
 #define entityTypeDead 0x80
 #define entityTypeDefault 0x7F
 
+#define MAX_ENTITIES 40
+
 /**
  * Public data structures
  */
@@ -39,3 +41,7 @@ void man_entity_forAll(void (*fnPtr)(Entity_t*));
  * Updates entity manager by destroying all marked entities
  */
 void man_entity_update();
+/**
+ * Returns number of free entities available
+ */
+u8 man_entity_freeSpace();
