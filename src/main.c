@@ -31,12 +31,24 @@ const Entity_t initEntity = {
 
 void _createEntity()
 {
-    Entity_t *e = man_entity_create();
-    cpct_memcpy(e, &initEntity, sizeof(Entity_t));
+    Entity_t *entity = man_entity_create();
+    cpct_memcpy(entity, &initEntity, sizeof(Entity_t));
+    entity->y = cpct_rand() % 200;
+    entity->vx = -1 - (cpct_rand() & 0x03);
+}
+
+void _wait(u8 n)
+{
+    do {
+        //cpct_waitHalts(2);
+        cpct_waitVSYNC();
+    } while (n--);
 }
 
 void main(void)
 {
+    u8 numEntities = 5;
+
     // Init video mode
     cpct_disableFirmware();
     cpct_setVideoMode(0);
@@ -45,14 +57,17 @@ void main(void)
 
     // Init entity manager and create entities
     man_entity_init();
-    for (u8 i = 5; i > 0; i--) {
+    for (u8 i = numEntities; i > 0; i--) {
         _createEntity();
     }
 
-    // Update systems
-    sys_physics_update();
-    sys_render_update();
+    // Loop forever
+    while(1) {
 
-    // Wait forever
-    while(1);
+        // Update systems
+        sys_physics_update();
+        sys_render_update();
+
+        _wait(10);
+    }
 }

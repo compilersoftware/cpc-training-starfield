@@ -1,9 +1,16 @@
 #include "entity.h";
 
-// Will store all valid entities from first place of the array, without gaps between them
+/**
+ * Private data members
+ */
 
+// Will store all valid entities from first place of the array, without gaps between them
 Entity_t _entities[10];
 Entity_t* _nextFreeEntity;
+
+/**
+ * Public functions
+ */
 
 void man_entity_init()
 {
@@ -13,9 +20,10 @@ void man_entity_init()
 
 Entity_t* man_entity_create()
 {
-    Entity_t* e = _nextFreeEntity;
-    _nextFreeEntity = e + 1;
-    return e;
+    Entity_t* entity = _nextFreeEntity;
+    _nextFreeEntity = entity + 1;
+    entity->type = entityTypeDefault;
+    return entity;
 }
 
 void man_entity_destroy(Entity_t* entity)
@@ -24,11 +32,11 @@ void man_entity_destroy(Entity_t* entity)
 }
 
 // fnPtr is a pointer to a function with one parameter of type Entity_t pointer
-void man_entity_forAll(void (*fnPtr)(Entity_t*))
+void man_entity_forAll(void (*updateFunctionPtr)(Entity_t*))
 {
-    Entity_t* e = _entities;
-    while (e->type != entityTypeInvalid) {
-        fnPtr(e);
-        ++e;
+    Entity_t* entity = _entities;
+    while (entity->type != entityTypeInvalid) {
+        updateFunctionPtr(entity);
+        ++entity;
     }
 }

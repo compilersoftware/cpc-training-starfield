@@ -1,6 +1,10 @@
 #include "physics.h"
 #include <man/entity.h>
 
+/**
+ * Private functions
+ */
+
 void _sys_physics_updateSingleEntity(Entity_t* entity)
 {
     // Copy into a variable just for comparison
@@ -12,6 +16,10 @@ void _sys_physics_updateSingleEntity(Entity_t* entity)
         entity->x = newX;
     }
 }
+
+/**
+ * Public functions
+ */
 
 void sys_physics_update()
 {
