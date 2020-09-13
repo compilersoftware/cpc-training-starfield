@@ -10,11 +10,9 @@ void _sys_physics_updateSingleEntity(Entity_t* entity)
     // Copy into a variable just for comparison
     u8 newX = entity->x + entity->vx;
     if (newX > entity->x) {
-        man_entity_destroy(entity);
-        // Better do man_entity_markForDestruction(e);
-    } else {
-        entity->x = newX;
+        man_entity_markForDestruction(entity);
     }
+    entity->x = newX;
 }
 
 /**

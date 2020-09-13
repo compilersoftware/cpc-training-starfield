@@ -26,7 +26,8 @@ const Entity_t initEntity = {
     entityTypeStar, // type
     79, 1,          // x, y
     -1,             // vx
-    0xFF            // colour
+    0xFF,           // colour
+    0x0000          // prevPtr
 };
 
 void _createEntity()
@@ -40,7 +41,10 @@ void _createEntity()
 void _wait(u8 n)
 {
     do {
-        //cpct_waitHalts(2);
+        // cpct_waitHalts() does not exist
+        // Wait loop
+        for (u16 i = 0; i < 500; i++) {
+        }
         cpct_waitVSYNC();
     } while (n--);
 }
@@ -67,6 +71,8 @@ void main(void)
         // Update systems
         sys_physics_update();
         sys_render_update();
+        // Update manager
+        man_entity_update();
 
         _wait(10);
     }

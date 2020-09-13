@@ -19,6 +19,9 @@ typedef struct te {
     u8 x, y;
     i8 vx;
     u8 colour;
+
+    // Attributes for optimizations
+    u8* prevPtr; // Pointer to previous screen position
 } Entity_t;
 
 /**
@@ -27,5 +30,12 @@ typedef struct te {
 
 void man_entity_init();
 Entity_t* man_entity_create();
-void man_entity_destroy(Entity_t* entity);
+/**
+ * Marks entity for later destruction
+ */
+void man_entity_markForDestruction(Entity_t* entity);
 void man_entity_forAll(void (*fnPtr)(Entity_t*));
+/**
+ * Updates entity manager by destroying all marked entities
+ */
+void man_entity_update();
