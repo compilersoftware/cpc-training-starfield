@@ -1,9 +1,7 @@
 #include "generator.h"
 #include <man/entity.h>
 
-/**
- * Private constants
- */
+/* Constantes privadas */
 const Entity_t _initEntity = {
     entityTypeStar, // type
     79, 1,          // x, y
@@ -12,14 +10,12 @@ const Entity_t _initEntity = {
     0x0000          // prevPtr
 };
 
-/**
- * Private functions
- */
+/* Funciones privadas */
 
 /**
- * Creates and initializes new star entity
+ * Crea e inicializa una nueva entidad estrella
  * 
- * @precondition There must be memory space available for new entities
+ * @precondition Debe haber espacio en memoria disponible para nuevas entidades
  */
 void _generateNewStar()
 {

@@ -18,15 +18,15 @@
 
 #include <cpctelera.h>
 #include "man/entity.h"
+#include "sys/generator.h"
 #include "sys/physics.h"
 #include "sys/render.h"
-#include "sys/generator.h"
 
-void _wait(u8 n)
+void _slowDown(u8 n)
 {
     do {
-        // cpct_waitHalts() does not exist
-        // Wait loop
+        // cpct_waitHalts(), usada en los vídeos, no existe en CPCTelera
+        // Implementamos un bucle vacío para ralentizar
         for (u16 i = 0; i < 500; i++) {
         }
         cpct_waitVSYNC();
@@ -35,24 +35,22 @@ void _wait(u8 n)
 
 void main(void)
 {
-    u8 numEntities = 5;
-
-    // Init video mode
     cpct_disableFirmware();
 
-    // Init systems
+    // Inicializar sistemas
     sys_render_init();
-    // Init manager
+
+    // Inicializar manager
     man_entity_init();
  
-    // Loop forever
     while(1) {
 
-        // Update systems
+        // Actualizar sistemas
         sys_physics_update();
         sys_generator_update();
         sys_render_update();
-        // Update manager
+
+        // Actualizar manager
         man_entity_update();
 
         cpct_waitVSYNC;

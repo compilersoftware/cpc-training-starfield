@@ -1,8 +1,6 @@
 #pragma once
 #include <cpctelera.h>
 
-/**
- * Public functions
- */
+/* Interfaz pública */
 
 void sys_generator_update();

@@ -1,13 +1,11 @@
 #include "physics.h"
 #include <man/entity.h>
 
-/**
- * Private functions
- */
+/* Funciones privadas */
 
 void _sys_physics_updateSingleEntity(Entity_t* entity)
 {
-    // Copy into a variable just for comparison
+    // Creamos una copia en una variable local para facilitar la comparación
     u8 newX = entity->x + entity->vx;
     if (newX > entity->x) {
         man_entity_markForDestruction(entity);
@@ -15,12 +13,10 @@ void _sys_physics_updateSingleEntity(Entity_t* entity)
     entity->x = newX;
 }
 
-/**
- * Public functions
- */
+/* Funciones públicas */
 
 void sys_physics_update()
 {
-    // Inversion of control - Very clear and useful
+    // Inversión de control, un patrón muy claro y útil, una vez se entiende
     man_entity_forAll(_sys_physics_updateSingleEntity);
 }

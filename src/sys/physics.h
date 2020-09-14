@@ -2,11 +2,6 @@
 #include <cpctelera.h>
 #include <man/entity.h>
 
-/**
- * Public interface
- */
+/* Interfaz pública */
 
-/**
- * Updates the physics system
- */
 void sys_physics_update();
