@@ -4,7 +4,7 @@
 /* Constantes privadas */
 const Entity_t _initEntity = {
     entityTypeStar, // type
-    79, 1,          // x, y
+    159, 1,         // x, y
     -1,             // vx
     0x80,           // colour
     0x0000          // prevPtr

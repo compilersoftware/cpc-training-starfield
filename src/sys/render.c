@@ -47,7 +47,6 @@ u8 _sys_render_getColourFromSpeed(i8 speed)
     }
 }
 
-
 void _sys_render_updateSingleEntity(Entity_t* entity)
 {
     // Borra la anterior (si existe)
@@ -58,8 +57,17 @@ void _sys_render_updateSingleEntity(Entity_t* entity)
     // Dibuja la actual (si no está marcada para destruir)
     // Draw current (if it is not marked for destruction)
     if (!(entity->type & entityTypeDead)) {
-        u8* pVideoMem = cpct_getScreenPtr(CPCT_VMEM_START, entity->x, entity->y);
+        u8 x = entity->x;
+        // x tiene la coordenada "real", pero en Modo 0, cada posición son 2 píxeles
+        u8* pVideoMem = cpct_getScreenPtr(CPCT_VMEM_START, x >> 1, entity->y);
+
         u8 colour = _sys_render_getColourFromSpeed(entity->vx);
+        // Movimiento al píxel
+        // Si x es par, escribimos en el píxel de la izquierda. Si es impar, en el de la derecha
+        if (x & 0x01) {
+            colour = colour >> 1;
+        }
+
         // Escribe colour en la celda de memoria a la que apunta pVideoMem
         *pVideoMem = colour; 
         entity->prevPtr = pVideoMem;
