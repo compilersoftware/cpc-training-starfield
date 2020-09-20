@@ -46,7 +46,7 @@ void _sys_render_updateSingleEntity(Entity_t* entity)
 void sys_render_init()
 {
     cpct_setVideoMode(0);
-    cpct_setVideoMode(HW_BLACK);
+    cpct_setBorder(HW_BLACK);
     cpct_setPalette(_palette, sizeof(_palette));
 }
 
