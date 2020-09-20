@@ -29,8 +29,9 @@ Se explican todas ellas en los vídeos. A continuación se citan las más releva
 
 * 1.0. Se implementan las mismas funcionalidades explicadas en los vídeos. Las estrellas se mueven de derecha a izquierda. Todas son del mismo color. Las estrellas son de 2x1 píxeles.
 
+* 1.1. Se usan diferentes colores según la velocidad de la estrella (más oscuro, más lenta).
+
 ## Funcionalidades propuestas para desarrollar
 
-* Usar diferentes colores según la velocidad de la estrella (más oscuro, más lenta)
 * Implementar movimiento al píxel. Y, por tanto, las estrellas serían de 1x1 píxeles.
 * Implementar movimiento del campo de estrellas en las cuatro direcciones (esta funcionalidad no está propuesta en el vídeo, pero me ha parecido un ejercicio interesante).
