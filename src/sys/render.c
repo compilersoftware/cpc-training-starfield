@@ -25,13 +25,10 @@ const u8 _palette[] = {
 /* Funciones privadas */
 
 /**
- * @precondition speed tiene signo, pero ha de tener un valor absoluto entre 1 y 4
+ * @precondition speed ha de tener un valor entre 1 y 4
  */
-u8 _sys_render_getColourFromSpeed(i8 speed)
+u8 _sys_render_getColourFromSpeed(u8 speed)
 {
-    if (speed < 0) {
-        speed = speed * -1;
-    }
     switch (speed) {
         case 1:
             return 0x80;
@@ -61,7 +58,7 @@ void _sys_render_updateSingleEntity(Entity_t* entity)
         // x tiene la coordenada "real", pero en Modo 0, cada posición son 2 píxeles
         u8* pVideoMem = cpct_getScreenPtr(CPCT_VMEM_START, x >> 1, entity->y);
 
-        u8 colour = _sys_render_getColourFromSpeed(entity->vx);
+        u8 colour = _sys_render_getColourFromSpeed(entity->speed);
         // Movimiento al píxel
         // Si x es par, escribimos en el píxel de la izquierda. Si es impar, en el de la derecha
         if (x & 0x01) {

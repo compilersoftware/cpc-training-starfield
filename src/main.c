@@ -21,6 +21,7 @@
 #include "sys/generator.h"
 #include "sys/physics.h"
 #include "sys/render.h"
+#include "sys/starfield.h"
 
 void _slowDown(u8 n)
 {
@@ -39,6 +40,7 @@ void main(void)
 
     // Inicializar sistemas
     sys_render_init();
+    sys_starfield_init();
 
     // Inicializar manager
     man_entity_init();
@@ -49,6 +51,7 @@ void main(void)
         sys_physics_update();
         sys_generator_update();
         sys_render_update();
+        sys_starfield_update();
 
         // Actualizar manager
         man_entity_update();

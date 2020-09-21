@@ -1,7 +1,6 @@
 #pragma once
 #include <cpctelera.h>
 
-
 /* Constantes */
 
 // Tipos de entidades (en formato mapa de bits)
@@ -10,14 +9,14 @@
 #define entityTypeDead 0x80
 #define entityTypeDefault 0x7F
 
-#define MAX_ENTITIES 40
+#define MAX_ENTITIES 45
 
 /* Estructuras de datos */
 
 typedef struct te {
     u8 type;
     u8 x, y;
-    i8 vx;
+    u8 speed;
     u8 colour;
 
     // Atributos dedicados a optimizaciones

@@ -1,16 +1,41 @@
 #include "generator.h"
 #include <man/entity.h>
+#include <sys/starfield.h>
 
 /* Constantes privadas */
 const Entity_t _initEntity = {
     entityTypeStar, // type
     159, 1,         // x, y
-    -1,             // vx
+    1,              // speed
     0x80,           // colour
     0x0000          // prevPtr
 };
 
 /* Funciones privadas */
+
+void _setEntityStartPositionFromOrientation(Entity_t* entity, Orientation_t* orientation)
+{
+    if (orientation->x < 0) {
+        entity->x = 159;
+        entity->y = cpct_rand() % 200;
+        return;
+    }
+    if (orientation->x > 0) {
+        entity->x = 0;
+        entity->y = cpct_rand() % 200;
+        return;
+    }
+    if (orientation->y < 0) {
+        entity->x = cpct_rand() % 160;
+        entity->y = 199;
+        return;
+    }
+    if (orientation->y > 0) {
+        entity->x = cpct_rand() % 160;
+        entity->y = 0;
+        return;
+    }
+}
 
 /**
  * Crea e inicializa una nueva entidad estrella
@@ -19,10 +44,12 @@ const Entity_t _initEntity = {
  */
 void _generateNewStar()
 {
+    Orientation_t* orientation = sys_starfield_getOrientation();
     Entity_t *entity = man_entity_create();
     cpct_memcpy(entity, &_initEntity, sizeof(Entity_t));
-    entity->y = cpct_rand() % 200;
-    entity->vx = -1 - (cpct_rand() & 0x03);
+    
+    _setEntityStartPositionFromOrientation(entity, orientation);
+    entity->speed = 1 + (cpct_rand() & 0x03); // Genera valores entre 1 y 4
 }
 
 void sys_generator_update()

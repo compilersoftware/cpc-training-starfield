@@ -31,16 +31,16 @@ Se explican todas ellas en los vídeos. A continuación se citan las más releva
 
 ## Versiones
 
-* 1.0. Se implementan las mismas funcionalidades explicadas en los vídeos. Las estrellas se mueven de derecha a izquierda. Todas son del mismo color. Las estrellas son de 2x1 píxeles.
+* 1.0. Se implementan las mismas funcionalidades explicadas en los vídeos. Las estrellas se mueven de derecha a izquierda. Todas son del mismo color. En Modo 0 cada byte representa 2 píxeles y sólo iluminamos uno, por tanto,  el movimiento es de un mínimo de 2 píxeles horizontales.
 
 * 1.1. Se usan diferentes colores según la velocidad de la estrella (más oscuro, más lenta).
 
-* 1.2. Se implementa movimiento al píxel. Las estrellas son de 1x1 píxeles.
+* 1.2. Se implementa movimiento al píxel.
 
-## Funcionalidades propuestas para desarrollar
-
-* Implementar movimiento del campo de estrellas en las cuatro direcciones (esta funcionalidad no está propuesta en el vídeo, pero me ha parecido un ejercicio interesante).
+* 1.3. El movimiento del campo de estrellas cambia aleatoriamente de dirección cada 3 segundos.
 
 ## Limitaciones conocidas (posibles mejoras)
+
+* En Modo 0 los píxeles tienen una relación de aspecto de 2:1. Si pintásemos estrellas de 1x2 píxeles, se verían cuadradas (de 2x2 píxeles).
 
 * No se tienen en cuenta las reglas de la perspectiva. Las estrellas se pintan en el orden que se crean. Por tanto, puede darse el caso de que una estrella más lenta (que, en teoría, está por detrás) se pinte por encima de una estrella más rápida (que debería estar por delante).
