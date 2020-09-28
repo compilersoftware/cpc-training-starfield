@@ -11,6 +11,8 @@ Para construir el proyecto desde cero, teniendo instalada la [CPCTelera](https:/
 
 Para lanzarlo en el emulador [WinApe](http://winape.net/), tecleamos `cpct_winape -a`.
 
+![Starfield Amstrad CPC](video/starfield-cpc.gif)
+
 ## Consideraciones acerca del código
 
 A continuación se citan las más relevantes (bajo nuestro criterio) de lo explicado en los vídeos, más lo que se ha intentado aportar por mi parte.
