@@ -4,11 +4,11 @@
 /* Atributos privados */
 
 const u8 _palette[] = {
-    HW_BLACK,
-    HW_BLUE,
-    HW_SKY_BLUE,
-    HW_BRIGHT_BLUE,
-    HW_BRIGHT_CYAN,
+    HW_BLACK,           
+    HW_BLUE,            // Color velocidad 1
+    HW_SKY_BLUE,        // Color velocidad 2
+    HW_BRIGHT_BLUE,     // Color velocidad 3
+    HW_BRIGHT_CYAN,     // Color velocidad 4
     HW_BRIGHT_WHITE,
     HW_BRIGHT_WHITE,
     HW_BRIGHT_WHITE,

@@ -13,7 +13,7 @@ const Entity_t _initEntity = {
 
 /* Funciones privadas */
 
-void _setEntityStartPositionFromOrientation(Entity_t* entity, Orientation_t* orientation)
+void _sys_generator_setEntityStartPositionFromOrientation(Entity_t* entity, Orientation_t* orientation)
 {
     if (orientation->x < 0) {
         entity->x = 159;
@@ -42,20 +42,22 @@ void _setEntityStartPositionFromOrientation(Entity_t* entity, Orientation_t* ori
  * 
  * @precondition Debe haber espacio en memoria disponible para nuevas entidades
  */
-void _generateNewStar()
+void _sys_generator_generateNewStar()
 {
     Orientation_t* orientation = sys_starfield_getOrientation();
     Entity_t *entity = man_entity_create();
     cpct_memcpy(entity, &_initEntity, sizeof(Entity_t));
     
-    _setEntityStartPositionFromOrientation(entity, orientation);
+    _sys_generator_setEntityStartPositionFromOrientation(entity, orientation);
     entity->speed = 1 + (cpct_rand() & 0x03); // Genera valores entre 1 y 4
 }
+
+/* Funciones públicas */
 
 void sys_generator_update()
 {
     u8 freeSpace = man_entity_freeSpace();
     if (freeSpace > 0) {
-        _generateNewStar();
+        _sys_generator_generateNewStar();
     }
 }
