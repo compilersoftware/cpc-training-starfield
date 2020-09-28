@@ -13,7 +13,7 @@ Para lanzarlo en el emulador [WinApe](http://winape.net/), tecleamos `cpct_winap
 
 ## Consideraciones acerca del código
 
-Se explican todas ellas en los vídeos. A continuación se citan las más relevantes (bajo nuestro criterio).
+A continuación se citan las más relevantes (bajo nuestro criterio) de lo explicado en los vídeos, más lo que se ha intentado aportar por mi parte.
 
 * El ejemplo es un tutorial de introducción a la [arquitectura ECS](https://en.wikipedia.org/wiki/Entity_component_system) (Entidad - Componente - Sistema). En realidad no necesitaríamos montar esta arquitectura para un caso de uso tan sencillo, pero precisamente la sencillez es la que permite centrarnos en aprender los conceptos que nos serán útiles en otros desarrollos más complejos.
 
@@ -28,6 +28,8 @@ Se explican todas ellas en los vídeos. A continuación se citan las más releva
 * La depuración es una tarea muy ardua en principio, hasta que cogemos práctica. Si bien el código está escrito en C, el depurador que nos ofrece el emulador WinApe (o cualquier otro que usemos) nos mostrará las instrucciones en lenguaje ensamblador. Así que tendremos que hacer uso de los ficheros intermedios que se generan durante la compilación para saber dónde se aloja el código y qué instrucciones en ensamblador se corresponden con una línea del fuente en C. También tendremos que inspeccionar la memoria para determinar si el código se comporta como debería o hay errores.
 
 * Tanto la documentación como los comentarios de código están escritos en español. En principio el objetivo es dirigirnos a un público hispanoparlante, ya que en inglés suele haber mucha más documentación en general.
+
+* Hasta la versión 1.0, el código es básicamente el que se explica en los vídeos, adaptando un poco el estilo y los nombres de las variables y funciones. Las siguientes versiones son cosecha propia, y el código no está tan optimizado, ya que el objetivo era implementarlas de manera rápida y que se entienda.
 
 ## Versiones
 
