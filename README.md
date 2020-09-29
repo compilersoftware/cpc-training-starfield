@@ -1,4 +1,4 @@
-# Starfield - CPCTelera - Amstrad CPC
+# Starfield - CPCtelera - Amstrad CPC
 
 Este programa de ejemplo está basada en esta serie de vídeos de [Fran Gallego](https://twitter.com/frangallegobr), también conocido como [Profesor Retroman](https://www.youtube.com/channel/UCSdIAKvPxlB3VlFDCBvI46A) en Youtube:
 
@@ -7,7 +7,7 @@ Este programa de ejemplo está basada en esta serie de vídeos de [Fran Gallego]
 
 Este proyecto se ha desarrollado en macOS, pero se supone que en Linux o Windows funcionará de forma similar.
 
-Para construir el proyecto desde cero, teniendo instalada la [CPCTelera](https://github.com/lronaldo/cpctelera) correctamente, tecleamos `make clean && make`.
+Para construir el proyecto desde cero, teniendo instalada la [CPCtelera](https://github.com/lronaldo/cpctelera) correctamente, tecleamos `make clean && make`.
 
 Para lanzarlo en el emulador [WinApe](http://winape.net/), tecleamos `cpct_winape -a`.
 
@@ -19,7 +19,7 @@ A continuación se citan las más relevantes (bajo nuestro criterio) de lo expli
 
 * El ejemplo es un tutorial de introducción a la [arquitectura ECS](https://en.wikipedia.org/wiki/Entity_component_system) (Entidad - Componente - Sistema). En realidad no necesitaríamos montar esta arquitectura para un caso de uso tan sencillo, pero precisamente la sencillez es la que permite centrarnos en aprender los conceptos que nos serán útiles en otros desarrollos más complejos.
 
-* El ejemplo usa el framework CPCTelera, que se apoya en el [compilador sdcc](http://sdcc.sourceforge.net/) y que genera ejecutables para ordenadores Amstrad CPC. El compilador y el hardware de destino condicionan notablemente el tipo de código que vamos a escribir. Por ejemplo, daremos por hecho que las llamadas a las funciones cumplen las precondiciones, las ejecución de las mismas cumple las postcondiciones y no haremos control de errores de ningún tipo. En caso contrario, simplemente se producirá un comportamiento inesperado.
+* El ejemplo usa el framework CPCtelera, que se apoya en el [compilador sdcc](http://sdcc.sourceforge.net/) y que genera ejecutables para ordenadores Amstrad CPC. El compilador y el hardware de destino condicionan notablemente el tipo de código que vamos a escribir. Por ejemplo, daremos por hecho que las llamadas a las funciones cumplen las precondiciones, las ejecución de las mismas cumple las postcondiciones y no haremos control de errores de ningún tipo. En caso contrario, simplemente se producirá un comportamiento inesperado.
 
 * Sabiendo que la plataforma objeto es Amstrad CPC, y que vamos a usar el Modo 0 para pintar los gráficos, daremos bastantes cosas por supuestas (por ejemplo, las dimensiones de la pantalla). No queremos hacer un motor gráfico multiplataforma y multi modo de vídeo.
 
