@@ -1,6 +1,6 @@
 # Starfield - CPCtelera - Amstrad CPC
 
-Este programa de ejemplo está basada en esta serie de vídeos de [Fran Gallego](https://twitter.com/frangallegobr), también conocido como [Profesor Retroman](https://www.youtube.com/channel/UCSdIAKvPxlB3VlFDCBvI46A) en Youtube:
+Este programa de ejemplo está basado en esta serie de vídeos de [Fran Gallego](https://twitter.com/frangallegobr), también conocido como [Profesor Retroman](https://www.youtube.com/channel/UCSdIAKvPxlB3VlFDCBvI46A) en Youtube:
 
 * [GameEngine ECS: Starfield Effect - part 1](https://www.youtube.com/watch?v=ighkMUM9-Ww).
 * [GameEngine ECS: Starfield Effect - part 2](https://www.youtube.com/watch?v=MgmCjcVOc44).
@@ -41,7 +41,7 @@ A continuación se citan las más relevantes (bajo nuestro criterio) de lo expli
 
 * 1.2. Se implementa movimiento al píxel.
 
-* 1.3. El movimiento del campo de estrellas cambia aleatoriamente de dirección cada 3 segundos.
+* 1.3. El movimiento del campo de estrellas cambia aleatoriamente de dirección cada 2 segundos.
 
 ## Limitaciones conocidas (posibles mejoras)
 
